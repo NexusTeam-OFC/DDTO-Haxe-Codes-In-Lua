@@ -21,7 +21,7 @@ No Haxe knowledge required — just drag, drop, and customize.
 
 ## 🚀 Installation
 
-1. **Download** the latest `DDTO_Haxe_Codes_In_Lua.zip` from [Releases](https://github.com/NexusTeam-OFC/DDTO-Haxe-Codes-In-Lua).
+1. **Download** the latest `DDTO_Haxe_Codes_In_Lua.zip` from [Releases](https://github.com/NexusTeam-OFC/DDTO-Haxe-Codes-In-Lua/releases).
 2. **Extract** the folder into your mod's root directory (usually `mods/YourMod/`).
 3. **Copy** desired `.lua` scripts into `mods/scripts/` or into individual song folders.
 4. **Edit** the configuration tables at the top of each script (e.g., `meta` table, `pauseArtMapping`, `gameOverConfig`).
