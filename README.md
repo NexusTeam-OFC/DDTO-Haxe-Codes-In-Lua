@@ -73,7 +73,7 @@ This project is licensed under the **Apache License** – you are free to use, m
 ## 🤝 Contributing
 
 Found a bug? Have a suggestion?  
-Open an [Issue](https://github.com/your-username/DDTO-Haxe-Codes-In-Lua/issues) or submit a Pull Request.
+Open an [Issue](https://github.com/your-username/DDTO-Haxe-Codes-In-Lua/issues) or submit a comment explaining the bug [GameBanana](https://gamebanana.com/mods/599360)
 
 ---
 
