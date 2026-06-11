@@ -1,170 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AssetManifest project="Controller.xml" version="2.4.7" build="8192" generated="2026-06-11T16:20:00Z" platform="cross" environment="production">
+
+<AssetManifest 
+    project="Controller"
+    version="2.4.7"
+    build="8192"
+    timestamp="2026-06-11T16:20:00Z"
+    platform="cross"
+    environment="production">
+
+    <!-- ===================== TYPES ===================== -->
     <AssetTypes>
-        <type id="texture" extensions="png,jpg,tga" mipmaps="true" compression="zlib"/>
-        <type id="config" extensions="xml,json,yaml" parser="DOM"/>
-        <type id="font" extensions="png,xml" composite="true" maxPages="4"/>
-        <type id="ui" extensions="png,atlas" interactive="true"/>
-        <type id="audio" extensions="ogg,wav" streamable="false"/>
-        <type id="animation" extensions="xml,json" fps="24"/>
-        <type id="shader" extensions="glsl,hlsl" target="2.0"/>
+
+        <Type id="texture"
+              extensions="png,jpg,tga"
+              mipmaps="true"
+              compression="zlib"/>
+
+        <Type id="config"
+              extensions="xml,json,yaml"
+              parser="dom"/>
+
+        <Type id="audio"
+              extensions="ogg,wav"
+              streaming="false"/>
+
+        <Type id="animation"
+              extensions="xml,json"
+              fps="24"
+              loopable="true"/>
+
+        <Type id="ui"
+              extensions="png,atlas"
+              interactive="true"/>
+
+        <Type id="shader"
+              extensions="glsl,hlsl"
+              target="2.0"/>
+
     </AssetTypes>
+
+    <!-- ===================== ASSETS ===================== -->
     <Assets>
-        <Asset id="DDTO_Logo" file="DDTO_Logo_Assets.png" type="texture" loadOrder="1" required="true" streaming="false" width="1024" height="512">
-            <checksum algorithm="SHA256">0x4A3F2B1C0D9E8F7A6B5C4D3E2F1A0B9C8D7E6F5A4B3C2D1E0F9A8B7C6D5E4F3A</checksum>
-            <pool>permanent</pool>
-            <cachePriority>high</cachePriority>
-            <allowedRam>16MB</allowedRam>
-            <variants>
-                <variant name="hdpi" scale="1.0"/>
-                <variant name="xhdpi" scale="1.5" file="DDTO_Logo_Assets_xhdpi.png"/>
-            </variants>
+
+        <Asset id="DDTO_Logo"
+               file="DDTO_Logo_Assets.png"
+               type="texture"
+               loadOrder="1"
+               required="true"
+               streaming="false"
+               width="1024"
+               height="512">
+
+            <Checksum algorithm="sha256">
+                4A3F2B1C0D9E8F7A6B5C4D3E2F1A0B9C8D7E6F5A4B3C2D1E0F9A8B7C6D5E4F3A
+            </Checksum>
+
+            <Cache pool="permanent" priority="high"/>
+            <RamLimit value="16MB"/>
+
         </Asset>
-        <Asset id="DDTO_Logo_Config" file="DDTO_Logo_Assets.xml" type="config" loadOrder="2" required="true" dependsOn="DDTO_Logo">
-            <checksum>0x12EF78AB34CD56EF78AB12CD34EF56AB78CD12EF</checksum>
-            <schema>logo_schema_v3.xsd</schema>
-            <overlayMerge>true</overlayMerge>
+
+        <Asset id="DokiConfig"
+               file="Doki.xml"
+               type="config"
+               loadOrder="0"
+               required="true"
+               critical="true">
+
+            <Checksum>DEADBEEFCAFEBABE0123456789ABCDEF</Checksum>
+
+            <Fallback>
+                <File priority="1">Doki_Default.xml</File>
+                <File priority="2">Doki_Backup.xml</File>
+            </Fallback>
+
         </Asset>
-        <Asset id="DokiConfig" file="Doki.xml" type="config" loadOrder="0" required="true" critical="true">
-            <checksum>0xDEADBEEFCAFEBABE0123456789ABCDEF</checksum>
-            <fallback priority="1">Doki_Default.xml</fallback>
-            <fallback priority="2">Doki_Backup.xml</fallback>
-            <validation>strict</validation>
+
+        <Asset id="GFDanceTitle"
+               file="gfDanceTitle.png"
+               type="texture"
+               loadOrder="7"
+               animated="true">
+
+            <Frame width="128" height="128" count="12"/>
+
         </Asset>
-        <Asset id="PopupBlank" file="Popup_Blank.png" type="ui" loadOrder="5" required="false" alphaChannel="true">
-            <checksum>0x00000000000000000000000000000000</checksum>
-            <note>Transparent 1x1 pixel if missing, system generates internally.</note>
+
+        <Asset id="GFDanceTitle_Anim"
+               file="gfDanceTitle.xml"
+               type="animation"
+               loadOrder="8"
+               dependsOn="GFDanceTitle">
+
+            <Loop>true</Loop>
+            <Interpolation>linear</Interpolation>
+
         </Asset>
-        <Asset id="TBDLogo" file="TBDLogo.png" type="texture" loadOrder="99" required="false" deprecated="true">
-            <checksum>0xFEDCBA9876543210FEDCBA9876543210</checksum>
-            <replacement>SplashLogo.png</replacement>
-            <expirationDate>2026-12-31</expirationDate>
+
+        <Asset id="MenuBG"
+               file="menuBG.png"
+               type="texture"
+               loadOrder="6"
+               required="true">
+
+            <BlendMode>normal</BlendMode>
+
         </Asset>
-        <Asset id="AlphabetPS_Glyphs" file="alphabet_playstation.png" type="texture" loadOrder="10" required="true">
-            <checksum>0x9876543210ABCDEF9876543210ABCDEF</checksum>
-            <format>raw</format>
+
+        <Asset id="MenuBG_Blue"
+               file="menuBGBlue.png"
+               type="texture"
+               variantOf="MenuBG">
+
+            <Condition>theme == "blue"</Condition>
+
         </Asset>
-        <Asset id="AlphabetPS_Mapping" file="alphabet_playstation.xml" type="config" loadOrder="11" required="true" dependsOn="AlphabetPS_Glyphs">
-            <checksum>0x1234567890ABCDEF1234567890ABCDEF</checksum>
-            <charSet>ASCII+PS1</charSet>
+
+        <Asset id="TitleEnter"
+               file="titleEnter.png"
+               type="ui"
+               loadOrder="9"
+               required="true">
+
+            <Hotspot x="0.5" y="0.85"/>
+            <Sound>enter_click.ogg</Sound>
+
         </Asset>
-        <Asset id="GFDanceTitle_Image" file="gfDanceTitle.png" type="texture" loadOrder="7" required="false" animated="true">
-            <checksum>0xAABBCCDDEEFF00112233445566778899</checksum>
-            <frameWidth>128</frameWidth>
-            <frameHeight>128</frameHeight>
-            <frameCount>12</frameCount>
-        </Asset>
-        <Asset id="GFDanceTitle_AnimData" file="gfDanceTitle.xml" type="animation" loadOrder="8" required="false" dependsOn="GFDanceTitle_Image">
-            <checksum>0x99887766554433221100FFEEDDCCBBAA</checksum>
-            <loop>true</loop>
-            <interpolation>linear</interpolation>
-        </Asset>
-        <Asset id="LogoBumpin_Texture" file="logoBumpin.png" type="texture" loadOrder="3" required="true">
-            <checksum>0x55AA33CC77BB11DD99FF22EE88446600</checksum>
-            <filter>bilinear</filter>
-        </Asset>
-        <Asset id="LogoBumpin_Config" file="logoBumpin.xml" type="config" loadOrder="4" required="true" dependsOn="LogoBumpin_Texture">
-            <checksum>0x22446688AACCEEFF1133557799BBDD00</checksum>
-            <bumpIntensity>0.8</bumpIntensity>
-        </Asset>
-        <Asset id="MenuBG_Main" file="menuBG.png" type="texture" loadOrder="6" required="true">
-            <checksum>0x1A2B3C4D5E6F7890A1B2C3D4E5F67890</checksum>
-            <tiling>stretch</tiling>
-            <blendMode>normal</blendMode>
-        </Asset>
-        <Asset id="MenuBG_Blue" file="menuBGBlue.png" type="texture" loadOrder="6" required="false" variantOf="MenuBG_Main">
-            <checksum>0x0F1E2D3C4B5A69788796A5B4C3D2E1F0</checksum>
-            <condition>blueTheme=true</condition>
-        </Asset>
-        <Asset id="MenuPoc_Icon" file="menuPoc.png" type="ui" loadOrder="12" required="false" easterEgg="true">
-            <checksum>0xFEEDC0DEFACE8BADF00DDEADBEEFCAFE</checksum>
-            <clickAction>showPocMessage()</clickAction>
-        </Asset>
-        <Asset id="MenuDesat" file="menudesat.png" type="texture" loadOrder="13" required="false" effect="desaturation">
-            <checksum>0x11111111222222223333333344444444</checksum>
-            <intensity>0.65</intensity>
-            <purpose>post-apocalyptic menu variant</purpose>
-        </Asset>
-        <Asset id="TitleEnter_Button" file="titleEnter.png" type="ui" loadOrder="9" required="true">
-            <checksum>0xABCDEF0123456789ABCDEF0123456789</checksum>
-            <hotspot x="0.5" y="0.85" radius="0.1"/>
-            <soundOnPress>enter_click.ogg</soundOnPress>
-        </Asset>
-        <Asset id="TitleEnter_Logic" file="titleEnter.xml" type="config" loadOrder="11" required="true" dependsOn="TitleEnter_Button">
-            <checksum>0x9876543210FEDCBA9876543210FEDCBA</checksum>
-            <action>onPress: validateLicense() -> loadMainMenu()</action>
-            <debugCommand>skipIntro=true</debugCommand>
-        </Asset>
-        <Asset id="LoadingSpinner" file="load_spinner.png" type="texture" loadOrder="-1" required="true" builtin="true">
-            <checksum>0xDEADBEEFDEADBEEFDEADBEEFDEADBEEF</checksum>
-        </Asset>
-        <Asset id="ErrorOverlay" file="error_overlay.png" type="ui" loadOrder="-1" required="true">
-            <checksum>0xCAFEBABECAFEBABECAFEBABECAFEBABE</checksum>
-        </Asset>
-        <Asset id="AudioConfig" file="audio_mixer.xml" type="config" loadOrder="0" required="true">
-            <checksum>0x11223344556677889900AABBCCDDEEFF</checksum>
-            <masterVolume>0.8</masterVolume>
-        </Asset>
-        <Asset id="Localization_English" file="lang_en.xml" type="config" loadOrder="-2" required="true">
-            <checksum>0x44556677889900AABBCCDDEEFF112233</checksum>
-            <fallbackLocale>en_US</fallbackLocale>
-        </Asset>
-        <Asset id="Shader_UI_Glow" file="ui_glow.glsl" type="shader" loadOrder="20" required="false">
-            <checksum>0x778899AABBCCDDEEFF00112233445566</checksum>
-        </Asset>
+
     </Assets>
+
+    <!-- ===================== RULES ===================== -->
     <LoadRules>
-        <rule name="sequential" enabled="true" retryOnFail="3" retryDelayMs="100"/>
-        <rule name="dependencyCheck" enabled="true" strictMode="true"/>
-        <rule name="fallbackRecovery" enabled="true" maxFallbackDepth="3"/>
-        <rule name="integrityCheck" enabled="true" requiredForCritical="true"/>
-        <rule name="threading" maxConcurrentLoads="4" backgroundLoading="true"/>
-        <rule name="memoryLimits" textureBudget="256MB" totalBudget="512MB"/>
+
+        <Rule name="dependencyCheck" enabled="true"/>
+        <Rule name="integrityCheck" enabled="true"/>
+        <Rule name="fallbackRecovery" enabled="true" maxDepth="3"/>
+
+        <Rule name="threading"
+              maxConcurrent="4"
+              async="true"/>
+
+        <Rule name="memory"
+              textureBudget="256MB"
+              totalBudget="512MB"/>
+
     </LoadRules>
-    <CriticalChain priority="absolute">
-        <entry>DokiConfig</entry>
-        <entry>AudioConfig</entry>
-        <entry>Localization_English</entry>
-        <entry>DDTO_Logo</entry>
-        <entry>DDTO_Logo_Config</entry>
-        <entry>LogoBumpin_Texture</entry>
-        <entry>LogoBumpin_Config</entry>
-        <entry>MenuBG_Main</entry>
-        <entry>TitleEnter_Button</entry>
-        <entry>TitleEnter_Logic</entry>
-        <entry>ErrorOverlay</entry>
+
+    <!-- ===================== CRITICAL ===================== -->
+    <CriticalChain>
+
+        DokiConfig,
+        DDTO_Logo,
+        MenuBG,
+        TitleEnter
+
     </CriticalChain>
-    <DependencyGraph>
-        <edge from="DDTO_Logo_Config" to="DDTO_Logo" type="hard"/>
-        <edge from="GFDanceTitle_AnimData" to="GFDanceTitle_Image" type="soft"/>
-        <edge from="LogoBumpin_Config" to="LogoBumpin_Texture" type="hard"/>
-        <edge from="TitleEnter_Logic" to="TitleEnter_Button" type="hard"/>
-        <edge from="AlphabetPS_Mapping" to="AlphabetPS_Glyphs" type="hard"/>
-        <edge from="MenuBG_Blue" to="MenuBG_Main" type="variant"/>
-    </DependencyGraph>
+
+    <!-- ===================== DEPENDENCIES ===================== -->
+    <Dependencies>
+
+        <Edge from="GFDanceTitle_Anim" to="GFDanceTitle"/>
+        <Edge from="MenuBG_Blue" to="MenuBG"/>
+
+    </Dependencies>
+
+    <!-- ===================== FAILURE ===================== -->
     <FailurePolicy>
-        <onMissing critical="true">HaltLoad_ShowErrorScreen</onMissing>
-        <onMissing critical="false">LogWarning_UsePlaceholder_Checkerboard</onMissing>
-        <onChecksumMismatch critical="true">ReloadFromBackup_RetryCount++_IfRetryExceeded_Halt</onChecksumMismatch>
-        <onChecksumMismatch critical="false">LogError_IgnoreAndProceed</onChecksumMismatch>
-        <onDepMissing>BlockLoading_NotifyUser_ExitToOS</onDepMissing>
-        <globalTimeout seconds="30">AbortLoad_RebootAssetManager</globalTimeout>
+
+        <OnMissing critical="true">HaltLoad</OnMissing>
+        <OnMissing critical="false">UsePlaceholder</OnMissing>
+
+        <OnChecksumMismatch critical="true">RetryThenAbort</OnChecksumMismatch>
+
     </FailurePolicy>
-    <PerformanceHints>
-        <preloadAssets index="0-10" at="startup"/>
-        <preloadAssets index="11-20" at="firstMenu"/>
-        <asyncLoad enabled="true" chunkSize="5"/>
-        <textureAtlas enabled="true" maxSize="2048"/>
-    </PerformanceHints>
-    <PlatformOverrides>
-        <override platform="windows">
-            <Asset id="Shader_UI_Glow" file="ui_glow_dx11.glsl"/>
-        </override>
-        <override platform="playstation">
-            <Asset id="AlphabetPS_Glyphs" file="alphabet_playstation_ps4.png"/>
-        </override>
-        <override platform="android">
-            <LoadRules maxConcurrentLoads="2" textureBudget="128MB"/>
-        </override>
-    </PlatformOverrides>
+
 </AssetManifest>
