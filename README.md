@@ -13,7 +13,7 @@ No Haxe knowledge required — just drag, drop, and customize.
 | **Meta Info UI** | Displays song name, artist, and custom icon with smooth entrance/exit animations. |
 | **Custom Pause UI** | Fully animated pause menu (Resume/Restart/Exit) with optional per-song Pause Art. |
 | **Custom Note Splash** | Customizable note splash effects (colors, sprites, timing). |
-| **Custom Ratings** | Expands rating system (SS, SSS, etc.) with custom thresholds. |
+| **Custom Ratings** | Expands rating system (AAA, AA, etc.) with custom thresholds. |
 | **Winning Icons** | Changes health bar icons to `_win` version when player/opponent is about to win. |
 | **Custom Game Over** | Per-character Game Over sprites and sounds (using JSON characters). |
 
